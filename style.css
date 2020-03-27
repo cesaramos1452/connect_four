@@ -1,0 +1,37 @@
+*{
+    margin: none;
+    box-sizing: border-box;
+}
+
+.board{
+    display: flex;
+    align-items: center;
+    justify-content: center ;
+    
+}
+
+.column{
+    background-color: rgb(255, 255, 0);
+    padding: 10px;
+    border: 2px solid black;
+    margin-top: 50px;
+    display: flex;
+    flex-direction: column-reverse;
+    justify-content: center;
+    align-items: center;
+    }
+
+.cell{
+    width: 9vw;
+    height: 9vh;
+    border: 2px solid black;
+    border-radius: 50%;
+    background-color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    
+}
+
+
