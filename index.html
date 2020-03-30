@@ -7,7 +7,17 @@
     <title>Connect Four</title>
     <link rel="stylesheet" href="style.css">    
 </head>
-<body>
+<body id="body">
+    <header>
+        <h1> C<span class="change">O</span>NNECT F<span class="change">O</span>UR </h1>
+    </header>
+    <div class="instructions">
+        The board is empty at the start of the game. 
+        The aim for both players is to make a straight line of four own pieces; 
+        the line can be vertical, horizontal or diagonal. 
+        Before starting, players decide randomly which of them will be the beginner; 
+        moves are made alternatively, one by turn.
+    </div>
     <div class="board">
         <div class="column" id="column0">
             <div class="cell"></div>
@@ -73,6 +83,11 @@
         </div>
 
     </div>
+
+    <div class="button">
+        <button id="restart">restart</button>
+    </div>
+
 
     <script src="main.js"></script>
 </body>
