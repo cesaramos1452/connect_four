@@ -221,6 +221,11 @@ let addDisc=()=>{
     diagonalRightCheck()
     diagonalLeftCheck()
     refreshDom();
+    numberOfCheckers++
+    if(numberOfCheckers === 42){
+        alert('game tied')
+        location.reload()
+    }
     
  }
  
