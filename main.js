@@ -79,8 +79,13 @@ let verticalCheck=()=>{
                boardDisplay[i + 1][j] === 1 &&
                boardDisplay[i + 2][j] === 1 &&
                boardDisplay[i + 3][j] === 1){
-                   alert('winner 1')
-                   location.reload()
+                let winner = document.createElement('h1');
+                let winnerMessage = document.createTextNode('Winner Sun');
+                winner.appendChild(winnerMessage);
+                let board = document.querySelector('.column');
+                board.appendChild(winner)
+                board.style.cssText='width:100%; height:100%; background-color:black;'
+                location.reload();
                 
             }
            else if(boardDisplay[i][j] !== null &&
@@ -105,8 +110,8 @@ let horizontalCheck=()=>{
                boardDisplay[i][j + 1] === 1 &&
                boardDisplay[i][j + 2] === 1 &&
                boardDisplay[i][j + 3] === 1){
-                  alert('winner 1')
-                  location.reload()
+                  let winningMessage = document.querySelector('.winningMessage');
+                  winningMessage.cssText='background-color:black; opacity:50%'
                
 
             }
@@ -221,6 +226,11 @@ let addDisc=()=>{
     diagonalRightCheck()
     diagonalLeftCheck()
     refreshDom();
+    numberOfCheckers++;
+    if(numberOfCheckers === 42){
+        alert('tied game');
+        location.reload();
+    }
     
  }
  
