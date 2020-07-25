@@ -203,6 +203,7 @@ let playerSwitch = () => {
   } else {
     player = 1;
   }
+<<<<<<< HEAD
 };
 
 //reloads game
@@ -239,6 +240,45 @@ let addClickHandler = () => {
     columns[i].addEventListener('click', addDisc);
   }
 };
+=======
+  
+}
+
+let refreshDom=()=>{
+    let button = document.querySelector('#restart');
+    button.addEventListener('click', function(event){
+        location.reload()
+    })
+
+}
+
+let addDisc=()=>{
+    changeColor()
+    insertSunChecker()
+    updateBoard()
+    insertEarthChecker()
+    playerSwitch()
+    horizontalCheck()
+    verticalCheck()
+    diagonalRightCheck()
+    diagonalLeftCheck()
+    refreshDom();
+    numberOfCheckers++
+    if(numberOfCheckers === 42){
+        alert('game tied')
+        location.reload()
+    }
+    
+ }
+ 
+
+let addClickHandler=()=>{
+    let columns = document.querySelectorAll('.column');
+    for(let i = 0; i < columns.length; i++){
+        columns[i].addEventListener('click', addDisc)
+    }
+}
+>>>>>>> ebbbc5b383d21dbe22b4e1b7ab18bf5b98967ab3
 
 // start game
 let game = () => {
