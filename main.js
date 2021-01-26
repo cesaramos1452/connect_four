@@ -278,7 +278,7 @@ let addClickHandler=()=>{
         columns[i].addEventListener('click', addDisc)
     }
 }
->>>>>>> ebbbc5b383d21dbe22b4e1b7ab18bf5b98967ab3
+
 
 // start game
 let game = () => {
