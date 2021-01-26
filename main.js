@@ -48,7 +48,7 @@ let tieMessage = () => {
     'width:100%; height:100%; background-color:black; color: red';
 };
 
-//connect four model
+//connect four models
 let boardDisplay = [
   [null, null, null, null, null, null, null],
   [null, null, null, null, null, null, null],
