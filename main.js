@@ -38,6 +38,16 @@ let earthMessage = () => {
     'width:100%; height:100%; background-color:black; color: turquoise';
 };
 
+let tieMessage = () => {
+  let winner = document.createElement('h1');
+  let winnerMessage = document.createTextNode('Tie!');
+  winner.appendChild(winnerMessage);
+  let board = document.querySelector('.board');
+  board.appendChild(winner);
+  board.style.cssText =
+    'width:100%; height:100%; background-color:black; color: red';
+};
+
 //connect four model
 let boardDisplay = [
   [null, null, null, null, null, null, null],
@@ -239,40 +249,8 @@ let addDisc = () => {
   refreshDom();
   numberOfCheckers++;
   if (numberOfCheckers === 42) {
-    alert('game tied');
-    location.reload();
-  }
-};
-
-let addClickHandler = () => {
-  let columns = document.querySelectorAll('.column');
-  for (let i = 0; i < columns.length; i++) {
-    columns[i].addEventListener('click', addDisc);
-  }
-};
-
-let refreshDom = () => {
-  let button = document.querySelector('#restart');
-  button.addEventListener('click', function (event) {
-    location.reload();
-  });
-};
-
-let addDisc = () => {
-  changeColor();
-  insertSunChecker();
-  updateBoard();
-  insertEarthChecker();
-  playerSwitch();
-  horizontalCheck();
-  verticalCheck();
-  diagonalRightCheck();
-  diagonalLeftCheck();
-  refreshDom();
-  numberOfCheckers++;
-  if (numberOfCheckers === 42) {
-    alert('game tied');
-    location.reload();
+    tieMessage();
+    setTimeout(() => location.reload(), 1000);
   }
 };
 
