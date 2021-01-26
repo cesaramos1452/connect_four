@@ -18,6 +18,26 @@ let CreateEarthChecker = (cell) => {
   cell.appendChild(divRed);
 };
 
+let sunMessage = () => {
+  let winner = document.createElement('h1');
+  let winnerMessage = document.createTextNode('Winner Sun');
+  winner.appendChild(winnerMessage);
+  let board = document.querySelector('.board');
+  board.appendChild(winner);
+  board.style.cssText =
+    'width:100%; height:100%; background-color:black; color: orange';
+};
+
+let earthMessage = () => {
+  let winner = document.createElement('h1');
+  let winnerMessage = document.createTextNode('Winner Earth');
+  winner.appendChild(winnerMessage);
+  let board = document.querySelector('.board');
+  board.appendChild(winner);
+  board.style.cssText =
+    'width:100%; height:100%; background-color:black; color: turquoise';
+};
+
 //connect four model
 let boardDisplay = [
   [null, null, null, null, null, null, null],
@@ -39,8 +59,8 @@ let diagonalLeftCheck = () => {
         boardDisplay[i + 2][j + 2] === 1 &&
         boardDisplay[i + 3][j + 3] === 1
       ) {
-        alert('winner 1');
-        location.reload();
+        sunMessage();
+        setTimeout(() => location.reload(), 1000);
       } else if (
         boardDisplay[i][j] !== null &&
         boardDisplay[i][j] === 2 &&
@@ -48,8 +68,8 @@ let diagonalLeftCheck = () => {
         boardDisplay[i + 2][j + 2] === 2 &&
         boardDisplay[i + 3][j + 3] === 2
       ) {
-        alert('winner 2');
-        location.reload();
+        earthMessage();
+        setTimeout(() => location.reload(), 1000);
       }
     }
   }
@@ -66,8 +86,8 @@ let diagonalRightCheck = () => {
         boardDisplay[i - 2][j + 2] === 1 &&
         boardDisplay[i - 3][j + 3] === 1
       ) {
-        alert('winner 1');
-        location.reload();
+        sunMessage();
+        setTimeout(() => location.reload(), 1000);
       } else if (
         boardDisplay[i][j] !== null &&
         boardDisplay[i][j] === 2 &&
@@ -75,8 +95,8 @@ let diagonalRightCheck = () => {
         boardDisplay[i - 2][j + 2] === 2 &&
         boardDisplay[i - 3][j + 3] === 2
       ) {
-        alert('winner 2');
-        location.reload();
+        earthMessage();
+        setTimeout(() => location.reload(), 1000);
       }
     }
   }
@@ -93,14 +113,8 @@ let verticalCheck = () => {
         boardDisplay[i + 2][j] === 1 &&
         boardDisplay[i + 3][j] === 1
       ) {
-        let winner = document.createElement('h1');
-        let winnerMessage = document.createTextNode('Winner Sun');
-        winner.appendChild(winnerMessage);
-        let board = document.querySelector('.column');
-        board.appendChild(winner);
-        board.style.cssText =
-          'width:100%; height:100%; background-color:black;';
-        location.reload();
+        sunMessage();
+        setTimeout(() => location.reload(), 1000);
       } else if (
         boardDisplay[i][j] !== null &&
         boardDisplay[i][j] === 2 &&
@@ -108,8 +122,8 @@ let verticalCheck = () => {
         boardDisplay[i + 2][j] === 2 &&
         boardDisplay[i + 3][j] === 2
       ) {
-        alert('winner 2');
-        location.reload();
+        earthMessage();
+        setTimeout(() => location.reload(), 1000);
       }
     }
   }
@@ -126,8 +140,8 @@ let horizontalCheck = () => {
         boardDisplay[i][j + 2] === 1 &&
         boardDisplay[i][j + 3] === 1
       ) {
-        let winningMessage = document.querySelector('.winningMessage');
-        winningMessage.cssText = 'background-color:black; opacity:50%';
+        sunMessage();
+        setTimeout(() => location.reload(), 1000);
       } else if (
         boardDisplay[i][j] !== null &&
         boardDisplay[i][j] === 2 &&
@@ -135,8 +149,8 @@ let horizontalCheck = () => {
         boardDisplay[i][j + 2] === 2 &&
         boardDisplay[i][j + 3] === 2
       ) {
-        alert('winner 2');
-        location.reload();
+        earthMessage();
+        setTimeout(() => location.reload(), 1000);
       }
     }
   }
@@ -203,10 +217,8 @@ let playerSwitch = () => {
   } else {
     player = 1;
   }
-<<<<<<< HEAD
 };
 
-//reloads game
 let refreshDom = () => {
   let button = document.querySelector('#restart');
   button.addEventListener('click', function (event) {
@@ -214,7 +226,6 @@ let refreshDom = () => {
   });
 };
 
-// intializes game
 let addDisc = () => {
   changeColor();
   insertSunChecker();
@@ -228,57 +239,17 @@ let addDisc = () => {
   refreshDom();
   numberOfCheckers++;
   if (numberOfCheckers === 42) {
-    alert('tied game');
+    alert('game tied');
     location.reload();
   }
 };
 
-//add event listeners to my column divs in html file
 let addClickHandler = () => {
   let columns = document.querySelectorAll('.column');
   for (let i = 0; i < columns.length; i++) {
     columns[i].addEventListener('click', addDisc);
   }
 };
-=======
-  
-}
-
-let refreshDom=()=>{
-    let button = document.querySelector('#restart');
-    button.addEventListener('click', function(event){
-        location.reload()
-    })
-
-}
-
-let addDisc=()=>{
-    changeColor()
-    insertSunChecker()
-    updateBoard()
-    insertEarthChecker()
-    playerSwitch()
-    horizontalCheck()
-    verticalCheck()
-    diagonalRightCheck()
-    diagonalLeftCheck()
-    refreshDom();
-    numberOfCheckers++
-    if(numberOfCheckers === 42){
-        alert('game tied')
-        location.reload()
-    }
-    
- }
- 
-
-let addClickHandler=()=>{
-    let columns = document.querySelectorAll('.column');
-    for(let i = 0; i < columns.length; i++){
-        columns[i].addEventListener('click', addDisc)
-    }
-}
->>>>>>> ebbbc5b383d21dbe22b4e1b7ab18bf5b98967ab3
 
 // start game
 let game = () => {
