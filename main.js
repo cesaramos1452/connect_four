@@ -251,6 +251,38 @@ let addClickHandler = () => {
   }
 };
 
+let refreshDom = () => {
+  let button = document.querySelector('#restart');
+  button.addEventListener('click', function (event) {
+    location.reload();
+  });
+};
+
+let addDisc = () => {
+  changeColor();
+  insertSunChecker();
+  updateBoard();
+  insertEarthChecker();
+  playerSwitch();
+  horizontalCheck();
+  verticalCheck();
+  diagonalRightCheck();
+  diagonalLeftCheck();
+  refreshDom();
+  numberOfCheckers++;
+  if (numberOfCheckers === 42) {
+    alert('game tied');
+    location.reload();
+  }
+};
+
+let addClickHandler = () => {
+  let columns = document.querySelectorAll('.column');
+  for (let i = 0; i < columns.length; i++) {
+    columns[i].addEventListener('click', addDisc);
+  }
+};
+
 // start game
 let game = () => {
   addClickHandler();
